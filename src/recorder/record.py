@@ -2,7 +2,7 @@ import pyaudio
 import wave
 import keyboard
 
-# Define constants for recording
+# Define constants for recording.
 CHUNK = 1024  # number of audio samples per frame
 FORMAT = pyaudio.paInt16  # audio format
 CHANNELS = 1  # mono audio
