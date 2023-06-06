@@ -1,8 +1,10 @@
+# Record speech
+
 import pyaudio
 import wave
 import keyboard
 
-# Define constants for recording.
+# Define constants for recording
 CHUNK = 1024  # number of audio samples per frame
 FORMAT = pyaudio.paInt16  # audio format
 CHANNELS = 1  # mono audio
@@ -31,7 +33,7 @@ def record():
     stream.close()
 
     # Save audio data to WAV file
-    with wave.open("../output.wav", "wb") as wav_file:
+    with wave.open("../speech_to_text/output.wav", "wb") as wav_file:
         wav_file.setnchannels(CHANNELS)
         wav_file.setsampwidth(audio.get_sample_size(FORMAT))
         wav_file.setframerate(RATE)
@@ -42,5 +44,4 @@ def record():
 
 # Wait for 'p' key to be pressed to start recording
 keyboard.wait('p')
-
 record()
