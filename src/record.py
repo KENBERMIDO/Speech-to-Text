@@ -33,7 +33,7 @@ def record():
     stream.close()
 
     # Save audio data to WAV file
-    with wave.open("../speech_to_text/output.wav", "wb") as wav_file:
+    with wave.open("output.wav", "wb") as wav_file:
         wav_file.setnchannels(CHANNELS)
         wav_file.setsampwidth(audio.get_sample_size(FORMAT))
         wav_file.setframerate(RATE)

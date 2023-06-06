@@ -3,5 +3,5 @@
 import whisper
 
 model = whisper.load_model("small.en")
-result=model.transcribe('output.wav', fp16=False)
+result = model.transcribe("sample-0.mp3", FP16=False)
 print(result["text"])
