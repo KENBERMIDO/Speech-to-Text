@@ -9,9 +9,9 @@ CHUNK = 1024  # number of audio samples per frame
 FORMAT = pyaudio.paInt16  # audio format
 CHANNELS = 1  # mono audio
 RATE = 44100  # sample rate in Hz
-RECORD_SECONDS = 5  # duration of recording
+# get rid of(?) RECORD_SECONDS = 5  # duration of recording
 
-# Create PyAudio object
+# Create PyAudio object, place it in 'audio'
 audio = pyaudio.PyAudio()
 
 def record():
