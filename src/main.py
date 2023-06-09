@@ -2,12 +2,15 @@ import pyaudio
 import wave
 import keyboard
 import whisper
+import os
+import openai
 
 # Define constants for recording
 CHUNK = 1024  # number of audio samples per frame
 FORMAT = pyaudio.paInt16  # audio format
 CHANNELS = 1  # mono audio
 RATE = 44100  # sample rate in Hz
+
 
 def record():
     # Create PyAudio object, place it in 'audio'
@@ -39,12 +42,37 @@ def record():
 
     print("Saved audio to output.wav")
 
+
 def transcribe():
-    model = whisper.load_model("small")
-    result = model.transcribe("output.wav", FP16=False)
+    model = whisper.load_model("small.en")
+    result = model.transcribe("output.wav", fp16=False)
     with open("transcript.txt", "w") as f:
+        print("Captured: ", result["text"])
         f.write(result["text"])
 
+def chatResponse():
+
+    openai.api_key = "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"
+
+    # "r" = read mode
+    with open("transcript.txt", "r") as f:
+        text = f.read()
+
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=text,
+        temperature=1,
+        max_tokens=256,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0
+    )
+
+    print(response)
+
 if __name__ == "__main__":
-    record()
-    transcribe()
+    while True:
+        keyboard.wait("p")
+        record()
+        transcribe()
+        chatResponse()
