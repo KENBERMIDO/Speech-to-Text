@@ -2,6 +2,8 @@ import pyaudio
 import wave
 import keyboard
 import whisper
+import requests
+
 import os
 import openai
 
@@ -50,25 +52,33 @@ def transcribe():
         print("Captured: ", result["text"])
         f.write(result["text"])
 
-def chatResponse():
+def chatResponse2(filepath):
+    try:
+        with open(filepath, 'rb') as infile:
+            files = {'audio_file': infile}
+            response = requests.post(f'http://8633-34-72-142-230.ngrok-free.app/main',
+                                     )
 
-    openai.api_key = "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"
+    # def chatResponse():
+    #
+    #   openai.api_key = "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"
+    #
+    #   # "r" = read mode
+    #  with open("transcript.txt", "r") as f:
+    #     text = f.read()
+    #
+    #    response = openai.Completion.create(
+    #        model="text-davinci-003",
+    #        prompt=text,
+    #        temperature=1,
+    #        max_tokens=256,
+    #        top_p=1,
+    #        frequency_penalty=0,
+    #        presence_penalty=0
+    #    )
 
-    # "r" = read mode
-    with open("transcript.txt", "r") as f:
-        text = f.read()
+    #print(response)
 
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=text,
-        temperature=1,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
-
-    print(response)
 
 if __name__ == "__main__":
     while True:
