@@ -52,32 +52,19 @@ def transcribe():
         print("Captured: ", result["text"])
         f.write(result["text"])
 
-def chatResponse2(filepath):
+
+def chatResponse2():
     try:
-        with open(filepath, 'rb') as infile:
-            files = {'audio_file': infile}
-            response = requests.post(f'http://8633-34-72-142-230.ngrok-free.app/main',
-                                     )
+        with open("transcript.txt", 'rb') as infile:
+            files = {"transcript.txt": infile}
+            response = requests.post(f'http://3936-34-105-117-108.ngrok-free.app/main',
+                                     files=files)
+            print(response.text)
+    except Exception as e:
+        print(f'An unknown error has occurred: {e}')
+        return None
 
-    # def chatResponse():
-    #
-    #   openai.api_key = "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"
-    #
-    #   # "r" = read mode
-    #  with open("transcript.txt", "r") as f:
-    #     text = f.read()
-    #
-    #    response = openai.Completion.create(
-    #        model="text-davinci-003",
-    #        prompt=text,
-    #        temperature=1,
-    #        max_tokens=256,
-    #        top_p=1,
-    #        frequency_penalty=0,
-    #        presence_penalty=0
-    #    )
-
-    #print(response)
+    # return r.json()['text'].strip()
 
 
 if __name__ == "__main__":
@@ -85,4 +72,4 @@ if __name__ == "__main__":
         keyboard.wait("p")
         record()
         transcribe()
-        chatResponse()
+        chatResponse2()
