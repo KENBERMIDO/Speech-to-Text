@@ -65,6 +65,7 @@ def chatResponse2():
         return None
 
     # return r.json()['text'].strip()
+    #a
 
 
 if __name__ == "__main__":
