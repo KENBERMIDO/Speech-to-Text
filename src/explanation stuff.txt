@@ -1,8 +1,0 @@
-So, when you use the statement:
-
-with open("transcript.txt", "w") as f:
-    f.write(result["text"])
-Copy
-You are opening a file named "transcript.txt" in write mode and assigning the file object returned by open() to the variable f. Then, you are calling the write() method on the file object (f.write(result["text"])) to write the transcript of the recording to the file. Finally, when the block of code inside the with statement is finished executing, Python automatically closes the file for you.
-
-I hope this helps! Let me know if you have any other questions.
