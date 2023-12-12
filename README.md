@@ -1,16 +1,14 @@
 # AI_1
 
-not final
+Small little program just for practice
 
 ## Program Overview
 
-what's happening:
-
 Speech to text -> Whisper API
-- Record speech using Microphone, transcribe it using WhisperAI
+- Record speech using users microphone, transcribe it using WhisperAI
 
+## To Add:
 Some language model (response; chatbot) -> Vicuna(?)
-- wip
 
-Text to speech -> take ai’s text and turn it to speech (edge-tts module)
-- wip
+Text to speech:
+- Take the text response and turn it to speech (edge-tts module?)
