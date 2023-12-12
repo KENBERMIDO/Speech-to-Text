@@ -1,6 +1,6 @@
-# AI_1
+# Speech-to-Text Program
 
-Small little program just for practice
+Speech-to-Text program for now, in the future hopefully a chatbot you can actually talk to
 
 ## Program Overview
 
